@@ -3,7 +3,7 @@ language: python
 services:
 - mysql
 python:
-- '2.7'
+- '3.6'
 env:
   matrix:
   - DB=sqlite3
@@ -12,12 +12,12 @@ install:
 before_script:
 - pip install coverage
 - pip install python-coveralls
-- pip install pep8
+- pip install pycodestyle
 - pip install nose2
 - cp travis-ci/manage.py manage.py
 - python manage.py migrate
 script:
-- pep8 hx_toolkit/ --exclude=hx_toolkit/migrations
+- pycodestyle hx_toolkit/ --exclude=hx_toolkit/migrations
 - FORCE_VIEW_TESTS=1 coverage run --source=hx_toolkit/ --omit=hx_toolkit/migrations/*
   manage.py test hx_toolkit
 after_script:
@@ -33,4 +33,4 @@ deploy:
     secure: PghEbVpzDt7WHtjw2SbyB18/cpMRsQBkk9W/73/j3utXglOoAfQhafuzIGImPyFxmzGbNVYRiDRjxzh0GvHIX8A8ys1kTq/GQxsrdoNkrQQXVKRBYz9KsysD103t8TlokRjQcBGZZltHRLAX/fm9Ennke5siYvC68veCTGJdtu+6mLpC7rlNegTZQnyv9aHvvL2OLDqhjItYMeZ4g2cnIJBPeq92y/TB3v8IppuBPlEPOtLYvOCY1rEcP1rapK+uQIFdOJ2xoOnaKcaq65zBufQLfTqN+AjhBfwtsjy0tPXsKStlPBA8ZUSAER5pEWd8aexMyB3ee+iTh9Mp0QO0RFHI7rWrS957QavucwVlrHXeAkrmAZBfCvOm1xrfqbZvWPKDrwB/B54d89/Iur+8qyNsh0IlV0gfzdCtctC0YAcowQx3p3ioIHsLKRy2L4DdXqTu8N2cLQnBpRDaRA5ihL1RiCdLWKN7zE664XDfaHWeOgBRFYE/j7FRwE2uKCq7DtwEMHxFRxU5zNEKAMS9ivp+fyxFg2xuuQKJ4JSyx9QvSI9HdOADLcDYJhnTF2T9h2eQVC3b6nq90DKC9f1xTlvrBtlVJM51GZjMS8IXA8fO0iIi605JioZ9LEyfvTOSP9ims1mL/T+uRsMQByt4DkfJlkfHashG+2Viwv7czQM=
   on:
     tags: true
-    python: '2.7'
+    python: '3.6'
