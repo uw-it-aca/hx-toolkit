@@ -1,9 +1,10 @@
 {{ article.load_static_string }}
 
 <h3 class="myuw-card-title">Husky Experience Toolkit</h3>
-<p class="myuw-card-tagline">Make the most of each week</p>
+
 
 <div class="myuw-article-teaser-wrapper">
+    <a href="/husky_experience_message?article={{ article.slug }}">
     {%  with img=article.image_srcset_paths%}
         <img class="myuw-card-image-full"
              srcset="{{ img.480|safe }} 480w,
@@ -20,4 +21,5 @@
         <h4 class="myuw-article-teaser-title"><span class="myuw-highlight"><a href="/husky_experience_message?article={{ article.slug }}">{{ article.title }}</a></span></h4>
         <p><span class="myuw-highlight">{{ article.short_body | safe }} <a class="myuw-link-card-teaser" href="/husky_experience_message?article={{ article.slug }}">Read more</a></span></p>
     </div>
+    </a>
 </div>
