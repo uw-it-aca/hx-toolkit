@@ -4,4 +4,4 @@ from django.apps import AppConfig
 
 
 class ThriveMessagesConfig(AppConfig):
-    name = 'thrive_messages'
+    name = 'hx_toolkit'
