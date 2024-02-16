@@ -26,9 +26,9 @@ setup(
     author_email="aca-it@uw.edu",
     include_package_data=True,
     install_requires=[
-        'Django',
+        'Django>4.2,<5',
         'django-compressor',
-        'Pillow'
+        'pillow'
     ],
     license='Apache License, Version 2.0',
     description=('An application for managing and serving HXT content'),
