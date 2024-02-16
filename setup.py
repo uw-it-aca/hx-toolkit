@@ -1,4 +1,4 @@
-# Copyright 2023 UW-IT, University of Washington
+# Copyright 2024 UW-IT, University of Washington
 # SPDX-License-Identifier: Apache-2.0
 
 import os
@@ -22,13 +22,13 @@ setup(
     name='UW_HX_Toolkit',
     version=VERSION,
     packages=['hx_toolkit'],
-    author="UW-IT AXDD",
+    author="UW-IT T&LS",
     author_email="aca-it@uw.edu",
     include_package_data=True,
     install_requires=[
-        'Django',
+        'Django>4.2,<5',
         'django-compressor',
-        'Pillow'
+        'pillow'
     ],
     license='Apache License, Version 2.0',
     description=('An application for managing and serving HXT content'),
@@ -39,6 +39,5 @@ setup(
         'License :: OSI Approved :: Apache Software License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 3.8',
     ],
 )
