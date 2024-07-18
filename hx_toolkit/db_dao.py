@@ -6,7 +6,6 @@ from hx_toolkit.models import Article, Category
 
 def get_articles_by_category(category_slug):
     articles = Article.objects.filter(category__slug=category_slug)
-    print len(articles)
 
 
 def get_article_by_slug(article_slug):

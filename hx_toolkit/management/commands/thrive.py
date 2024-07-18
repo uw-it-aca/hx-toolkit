@@ -13,7 +13,7 @@ from PIL import Image
 
 
 class Command(BaseCommand):
-    APP_BASE_DIR = settings.BASE_DIR + '/hx_toolkit/'
+    APP_BASE_DIR = str(settings.BASE_DIR) + '/hx_toolkit/'
     STATIC_OUTPUT_DIR = APP_BASE_DIR + 'static/hx_toolkit_output/'
     ARTICLE_OUTPUT_DIR = APP_BASE_DIR + 'templates/hx_toolkit_output/'
     ARTICLE_BY_SLUG_DIR = ARTICLE_OUTPUT_DIR + "by_id/"
@@ -68,7 +68,7 @@ class Command(BaseCommand):
                             category + ".html")
 
     def _save_html(self, html, path):
-        with open(path, 'w+') as article_file:
+        with open(path, 'wb') as article_file:
             article_file.write(html.encode('utf-8'))
 
     def handle(self, *args, **options):
@@ -125,6 +125,6 @@ class Command(BaseCommand):
         image = Image.open(image_path)
         width_percent = (width / float(image.size[0]))
         height = int((float(image.size[1]) * float(width_percent)))
-        image = image.resize((width, height), Image.ANTIALIAS)
+        image = image.resize((width, height), Image.LANCZOS)
 
         return image
