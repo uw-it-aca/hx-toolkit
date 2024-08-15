@@ -8,7 +8,7 @@ class ResourceLink(models.Model):
     url = models.URLField()
     title = models.CharField(max_length=255)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
 
@@ -16,7 +16,7 @@ class Category(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(unique=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     class Meta:
@@ -72,7 +72,7 @@ class Article(models.Model):
     related_links = models.ManyToManyField(ResourceLink,
                                            blank=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     def article_title_data(self):
